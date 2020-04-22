@@ -12,24 +12,24 @@
 // DO NOT MODIFY FUNCTIONS 'makeHorse' AND 'makeFlyingHorse'
 // USE THE CONSTRUCTOR FUNCTIONS LOCATED AT THE END OF THIS FILE
 
-var makeHorse = function(name) {
+var makeHorse = function (name) {
   var result = {};
   result.name = name;
-  result.goSomewhere = function(destination) {
-    return name + ' is galloping to ' + destination + '!';
+  result.goSomewhere = function (destination) {
+    return name + " is galloping to " + destination + "!";
   };
   return result;
 };
 
-var makeFlyingHorse = function(name, color) {
+var makeFlyingHorse = function (name, color) {
   var result = makeHorse(name);
   result.color = color;
   var oldGoSomewhere = result.goSomewhere;
-  result.goSomewhere = function(destination, milesToDestination) {
+  result.goSomewhere = function (destination, milesToDestination) {
     if (milesToDestination < 10) {
       return oldGoSomewhere(destination);
     } else {
-      return name + ' is flying to ' + destination + '!';
+      return name + " is flying to " + destination + "!";
     }
   };
   return result;
@@ -38,15 +38,53 @@ var makeFlyingHorse = function(name, color) {
 // YOUR WORK GOES BELOW
 // Here's some starter code to get you going!
 
-var Horse = function(name) {
+var Horse = function (name) {
+  this.name = name;
 };
 
-
-
-var FlyingHorse = function(name, color) {
+Horse.prototype.goSomewhere = function (destination) {
+  return this.name + " is galloping to " + destination + "!";
 };
+
+// var makeHorse = function(name) {
+//   var result = {};
+//   result.name = name;
+//   result.goSomewhere = function(destination) {
+//     return name + ' is galloping to ' + destination + '!';
+//   };
+//   return result;
+// };
+
+var FlyingHorse = function (name, color) {
+  Horse.apply(this, arguments);
+  this.color = color;
+};
+FlyingHorse.prototype = Object.create(Horse.prototype);
+FlyingHorse.prototype.constructor = FlyingHorse;
+
+FlyingHorse.prototype.goSomewhere = function (destination, milesToDestination) {
+  if (milesToDestination < 10) {
+    return Horse.prototype.goSomewhere.bind(this)(destination);
+  } else {
+    return this.name + " is flying to " + destination + "!";
+  }
+};
+
+// var makeFlyingHorse = function (name, color) {
+//   var result = makeHorse(name);
+//   result.color = color;
+//   var oldGoSomewhere = result.goSomewhere;
+//   result.goSomewhere = function (destination, milesToDestination) {
+//     if (milesToDestination < 10) {
+//       return oldGoSomewhere(destination);
+//     } else {
+//       return name + " is flying to " + destination + "!";
+//     }
+//   };
+//   return result;
+// };
 
 module.exports = {
   Horse,
-  FlyingHorse
-}
+  FlyingHorse,
+};

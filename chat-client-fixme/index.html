@@ -36,11 +36,15 @@
         </form>
       </div>
     </div>
+
+    <div class="chat-room">
+      <!-- posting msg is here -->
+    </div>
     <script src="js/setup.js"></script>
     <script>
       // Get messages every 7.5 seconds
       getData();
-      setInterval(getData, 7500);
+      // setInterval(getData, 7500);
 
       $('.submit').on('submit', function(event) {
         event.preventDefault();
@@ -48,7 +52,7 @@
         $('#backButton').toggle();
         $('.title').text('Chat with JSON');
 
-        postData($('.userInput').val(), username);
+        postData($('.userInput').val(), username); // ?
         $('.userInput').val('');
       });
     </script>

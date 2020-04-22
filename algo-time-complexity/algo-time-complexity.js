@@ -4,18 +4,19 @@
  */
 
 var TimeComplexity = {
-  FIX_ME: 'wrong answer',
-  CONSTANT: 'constant',
-  LOGARITHMIC: 'logarithmic',
-  LINEAR: 'linear',
-  QUADRATIC: 'quadratic',
-  EXPONENTIAL: 'exponential'
+  FIX_ME: "wrong answer",
+  CONSTANT: "constant",
+  LOGARITHMIC: "logarithmic",
+  LINEAR: "linear",
+  QUADRATIC: "quadratic",
+  EXPONENTIAL: "exponential",
 };
 exports.TimeComplexity = TimeComplexity;
 
-exports.sortedIndexOfTimeComplexity = /* START SOLUTION */TimeComplexity.FIXME;/* ELSE TimeComplexity.FIX_ME; END SOLUTION */ // TODO: Update this constant
+exports.sortedIndexOfTimeComplexity =
+  /* START SOLUTION */ TimeComplexity.LOGARITHMIC; /* ELSE TimeComplexity.FIX_ME; END SOLUTION */ // TODO: Update this constant
 
-var sortedIndexOf = function(array, targetElement) {
+var sortedIndexOf = function (array, targetElement) {
   var minIndex = 0;
   var maxIndex = array.length - 1;
   var currentIndex;
@@ -37,10 +38,10 @@ var sortedIndexOf = function(array, targetElement) {
   return -1;
 };
 
+exports.findDuplicatesTimeComplexity =
+  /* START SOLUTION */ TimeComplexity.LINEAR; /* ELSE TimeComplexity.FIX_ME; END SOLUTION */ // TODO: Update this constant
 
-exports.findDuplicatesTimeComplexity = /* START SOLUTION */TimeComplexity.FIXME;/* ELSE TimeComplexity.FIX_ME; END SOLUTION */ // TODO: Update this constant
-
-var findDuplicates = function(string) {
+var findDuplicates = function (string) {
   var tracker = {};
   var result = [];
   for (var i = 0; i < string.length; i++) {
@@ -56,15 +57,15 @@ var findDuplicates = function(string) {
   return result;
 };
 
+exports.bruteForcePasswordTimeComplexity =
+  /* START SOLUTION */ TimeComplexity.EXPONENTIAL; /* ELSE TimeComplexity.FIX_ME; END SOLUTION */ // TODO: Update this constant
 
-exports.bruteForcePasswordTimeComplexity = /* START SOLUTION */TimeComplexity.FIXME;/* ELSE TimeComplexity.FIX_ME; END SOLUTION */ // TODO: Update this constant
+var bruteForcePassword = function (max) {
+  var alphabet = "abcdefghijklmnopqrstuvwxyz";
 
-var bruteForcePassword = function(max) {
-  var alphabet = 'abcdefghijklmnopqrstuvwxyz';
-
-  var findPassword = function(attempt) {
+  var findPassword = function (attempt) {
     if (attempt.length > 0) {
-      console.log('Trying ' + attempt);
+      console.log("Trying " + attempt);
     }
     if (attempt.length <= max) {
       for (var i = 0; i < alphabet.length; i++) {
@@ -73,13 +74,13 @@ var bruteForcePassword = function(max) {
     }
   };
 
-  findPassword('');
+  findPassword("");
 };
 
+exports.hasDuplicatesTimeComplexity =
+  /* START SOLUTION */ TimeComplexity.QUADRATIC; /* ELSE TimeComplexity.FIX_ME; END SOLUTION */ // TODO: Update this constant
 
-exports.hasDuplicatesTimeComplexity = /* START SOLUTION */TimeComplexity.FIXME;/* ELSE TimeComplexity.FIX_ME; END SOLUTION */ // TODO: Update this constant
-
-var hasDuplicates = function(array) {
+var hasDuplicates = function (array) {
   for (var i = 0; i < array.length; i++) {
     var item = array[i];
     if (array.slice(i + 1).indexOf(item) !== -1) {
@@ -89,11 +90,10 @@ var hasDuplicates = function(array) {
   return false;
 };
 
+exports.removeLastThreeElementsTimeComplexity =
+  /* START SOLUTION */ TimeComplexity.CONSTANT; /* ELSE TimeComplexity.FIX_ME; END SOLUTION */ // TODO: Update this constant
 
-
-exports.removeLastThreeElementsTimeComplexity = /* START SOLUTION */TimeComplexity.FIXME;/* ELSE TimeComplexity.FIX_ME; END SOLUTION */ // TODO: Update this constant
-
-var removeLastThreeElements = function(array) {
+var removeLastThreeElements = function (array) {
   var numberOfElementsToRemove = 3;
 
   while (numberOfElementsToRemove-- > 0) {
@@ -101,23 +101,22 @@ var removeLastThreeElements = function(array) {
   }
 };
 
+exports.increasingStepTimeComplexity =
+  /* START SOLUTION */ TimeComplexity.LOGARITHMIC; /* ELSE TimeComplexity.FIX_ME; END SOLUTION */ // TODO: Update this constant
 
-exports.increasingStepTimeComplexity = /* START SOLUTION */TimeComplexity.FIXME;/* ELSE TimeComplexity.FIX_ME; END SOLUTION */ // TODO: Update this constant
-
-var increasingStep = function(number) {
+var increasingStep = function (number) {
   for (var i = 1; i < number; i = i * 2) {
     console.log(i);
   }
 };
 
-
-exports.makeRangeTimeComplexity = /* START SOLUTION */TimeComplexity.FIXME;/* ELSE TimeComplexity.FIX_ME; END SOLUTION */ // TODO: Update this constant
-
-var makeRange = function(array) {
-  array.forEach(function(item) {
+exports.makeRangeTimeComplexity =
+  /* START SOLUTION */ TimeComplexity.LINEAR; /* ELSE TimeComplexity.FIX_ME; END SOLUTION */ // TODO: Update this constant
+//linear
+var makeRange = function (array) {
+  array.forEach(function (item) {
     for (var i = 1; i < 10; i++) {
       console.log(item + i);
     }
   });
 };
-
